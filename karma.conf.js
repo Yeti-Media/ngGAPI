@@ -10,7 +10,7 @@ module.exports = function(config) {
     files: [
       'components/angular/angular.js',
       'components/angular-mocks/angular-mocks.js',
-      'gapi.js',
+      'build/gapi.js',
       'test/**/*Spec.coffee'
     ],
 

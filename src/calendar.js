@@ -52,6 +52,6 @@ angular.module('gapi')
     };
 
     return Calendar;
-  })
+  });
 
 

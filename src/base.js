@@ -111,12 +111,12 @@ angular.module('gapi', [])
 
     function oauthHeader(options) {
       if (!options.headers) { options.headers = {}; }
-      options.headers['Authorization'] = 'Bearer ' + GAPI.app.oauthToken.access_token;      
+      options.headers['Authorization'] = 'Bearer ' + GAPI.app.access_token;      
     }
 
     function oauthParams(options) {
       if (!options.params) { options.params = {}; }
-      options.params.access_token = GAPI.app.oauthToken.access_token;      
+      options.params.access_token = GAPI.app.access_token;      
     }
 
     
@@ -366,24 +366,10 @@ angular.module('gapi', [])
      * Authorization
      */
 
-    GAPI.init = function () {
-      var app = GAPI.app
-        , deferred = $q.defer();
-
-      gapi.load('auth', function () {
-        gapi.auth.authorize({
-          client_id: app.clientId,
-          scope: app.scopes,
-          immediate: false     
-        }, function() {
-          app.oauthToken = gapi.auth.getToken();
-          deferred.resolve(app);
-        });
-      });
-
-      return deferred.promise;  
+    GAPI.init = function (access_token) {
+      GAPI.app.access_token = access_token;
     }
 
 
 
-
+  });

@@ -91,6 +91,6 @@ angular.module('gapi')
 
     return Blogger;
 
-  })
+  });
 
 
