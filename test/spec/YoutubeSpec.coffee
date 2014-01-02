@@ -22,9 +22,7 @@ describe 'GAPI', ->
     $httpBackend = $injector.get '$httpBackend'
 
     GAPI.app = {
-      oauthToken: {
-        access_token: '1234abcd'
-      }
+      access_token: '1234abcd'
     }
 
     getHeaders = deleteHeaders = 

@@ -125,20 +125,9 @@ angular.module('gapi', [])
      */
 
     function request (config) {
-      var deferred = $q.defer();
-
       oauthHeader(config);
 
-      function success(response) {
-        deferred.resolve(response.data);
-      }
-
-      function failure(fault) {
-        deferred.reject(fault);
-      }
-
-      $http(config).then(success, failure);
-      return deferred.promise;
+      return $http(config);
     }
 
 
@@ -370,6 +359,6 @@ angular.module('gapi', [])
       GAPI.app.access_token = access_token;
     }
 
-
+    return GAPI;
 
   });
