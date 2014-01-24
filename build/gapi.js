@@ -167,6 +167,7 @@ angular.module('gapi', [])
      */
 
     GAPI.prototype.get = function () {
+      console.log('gapi get');
       var args = Array.prototype.slice.call(arguments)
         , path = []
         , params
@@ -690,7 +691,8 @@ angular.module('gapi')
       thumbnails:       ['set'],
       videoCategories:  ['list'],
       videos:           ['list', 'insert', 'update', 'delete'],
-      watermarks:       ['set', 'unset']
+      watermarks:       ['set', 'unset'],
+      search:           ['list']
     });
 
     // Some methods don't fit the pattern
@@ -709,9 +711,6 @@ angular.module('gapi')
       return Youtube.get('videos', 'getRating', params);     
     };
 
-    Youtube.search = function (params) {
-      return Youtube.get('search', params);
-    }
 
     return Youtube;
   });

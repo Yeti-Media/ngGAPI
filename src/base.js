@@ -167,6 +167,7 @@ angular.module('gapi', [])
      */
 
     GAPI.prototype.get = function () {
+      console.log('gapi get');
       var args = Array.prototype.slice.call(arguments)
         , path = []
         , params
